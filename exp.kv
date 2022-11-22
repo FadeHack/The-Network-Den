@@ -1,0 +1,256 @@
+WindowManager:
+    FirstWindow:
+    SecondWindow:
+
+    SecondOneWindow:
+    SecondOneDataWindow:
+
+    SecondTwoWindow:
+
+    SecondThreeWindow:
+
+
+	
+<FirstWindow>:
+    name: "First"
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'firstPg.jpg'
+    FloatLayout:
+        size: root.width, root.height
+        Label:
+            id: "FirstLabel"
+            text: "The Network Den"
+            font_name: 'Comic'
+            size_hint: (0.4, 0.15)
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            canvas.before:
+				Color:
+					rgba: (0,0,0,1)
+				Rectangle:
+					size: self.size
+					pos: self.pos
+            font_size: 32
+        Button:
+            text: "Start"
+			font_size: 25
+            size_hint: (.3, .04)
+            pos_hint: {'center_x':0.5, 'center_y':0.2}
+            color: 0, 0, 0, 1
+            background_normal: 'top.png'
+            background_down: 'down.png'
+            border: 30,30,30,30
+			on_release: 
+				app.root.current = "Second"
+				root.manager.transition.direction = "right" 
+        
+<SecondWindow>:
+    name:"Second"
+    BoxLayout:
+        orientation:"horizontal"
+        size: root.width, root.height
+        padding: 5
+        spacing: 5
+        Button:
+            id: scr2_1
+            text:"Feature 1"
+            color: 1, 1, 1, 1
+            font_size: 20
+            background_normal: '2.jpg'
+            border: 30,30,30,30
+            on_release: 
+				app.root.current = "SecondOne"
+				root.manager.transition.direction = "right"
+
+        Button:
+            id: scr2_2
+            text:"Feature 2"
+            color: 1, 1, 1, 1
+            font_size: 20
+            background_normal: '1.jpg'
+            border: 30,30,30,30
+            on_release: 
+				app.root.current = "SecondTwo"
+				root.manager.transition.direction = "right"
+        Button:
+            id: scr2_3
+            text:"Feature 3"
+            color: 1, 1, 1, 1
+            font_size: 20
+            background_normal: '3.jpg'
+            border: 30,30,30,30
+            on_release: 
+				app.root.current = "SecondThree"
+				root.manager.transition.direction = "right"
+        
+
+<SecondOneWindow>:
+    name: "SecondOne"
+    my_label: my_label_id
+	my_spinner: my_spinner
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'fig1.jpg'
+    FloatLayout:
+        Label:
+            id: my_label_id
+            text:"Label"
+			text_size:root.size
+			halign:'left'
+			valign:'middle'
+            size_hint: (None, None)
+
+            
+			 
+		Spinner:
+        	id:my_spinner
+        	text:'Available COM Ports'
+        	size_hint: (0.3, 0.2)
+        	size: 100, 50
+			values: app.NI
+        	pos_hint:{'center_x': .5, 'center_y': .7}
+        	color: 0, 0, 0, 1
+            background_normal: 'down.png'
+            background_down: 'top.png'
+            border: 30,30,30,30
+			
+        Button:
+            text: "Scan"
+            size_hint: (.1, .1)
+            pos_hint: {'center_x': 0.9, 'y':.05}
+            color: 0, 0, 0, 1
+            background_normal: 'down.png'
+            background_down: 'top.png'
+            border: 30,30,30,30
+            on_press:
+				root.pressed()
+				root.manager.current = 'SecondOneData'
+        Button:
+            text: "Back"
+		    size_hint: (.1, .1)
+            pos_hint: {'x':.05, 'y':.05}
+            color: 0, 0, 0, 1
+            background_normal: 'down.png'
+            background_down: 'top.png'
+            border: 30,30,30,30
+            on_press:
+                root.manager.current = 'Second'
+                root.go_Second()
+
+<SecondOneDataWindow>:
+    name:"SecondOneData"
+    Button:
+        text: "Back"
+		size_hint: (.1, .1)
+        pos_hint: {'x':.05, 'y':.05}
+        color: 0, 0, 0, 1
+        background_normal: 'top.png'
+        background_down: 'down.png'
+        border: 30,30,30,30
+        on_press:
+            root.manager.current = 'SecondOne'
+            root.go_SecondOne()
+
+
+<SecondTwoWindow>:
+    name:"SecondTwo"
+    size: root.width, root.height
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'fig2.jpg'
+    FloatLayout:
+        Label:
+            text:"Enter Site : "
+            font_size: 15
+            size_hint: (0.3, 0.05)
+            pos_hint: {'center_x':0.1, 'y':0.8}
+        TextInput:
+            multiline: False
+            font_size: 15
+            size_hint:(0.5, 0.05)
+            pos_hint:{'center_x':0.5, 'y':0.8}
+        
+        TextInput:
+            text: "Domain IP Address : 192.88.22.223"
+            size_hint:(0.5, 0.2)
+            pos_hint:{'center_x':0.5, 'y':0.3}
+            disabled: True
+            halign: "center"
+
+        Button:
+            text: "Get IP and Location"
+            size_hint: (0.4, 0.1)
+            pos_hint: {'center_x':0.5, 'y':0.6}
+            color: 0, 0, 0, 1
+            background_normal: 'top.png'
+            background_down: 'down.png'
+            border: 30,30,30,30
+        
+        Button:
+            text: "Back"
+		    size_hint: (.1, .1)
+            pos_hint: {'x':.05, 'y':.05}
+            color: 0, 0, 0, 1
+            background_normal: 'top.png'
+            background_down: 'down.png'
+            border: 30,30,30,30
+            on_press:
+                root.manager.current = 'Second'
+                root.go_Second()
+
+<SecondThreeWindow>:
+    name:"SecondThree"
+    size: root.width, root.height
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'fig3.jpg'
+    FloatLayout:
+        Label:
+            text:"Enter Site : "
+            font_size: 15
+            size_hint: (0.3, 0.05)
+            pos_hint: {'center_x':0.1, 'y':0.8}
+        TextInput:
+            multiline: False
+            font_size: 15
+            size_hint:(0.5, 0.05)
+            pos_hint:{'center_x':0.5, 'y':0.8}
+        
+
+        TextInput:
+            text: "All Information Regarding The Domain Shown Here"
+            disabled: True
+            size_hint:(0.5, 0.2)
+            pos_hint:{'center_x':0.5, 'y':0.3}
+            halign: "center"
+            focus:True
+
+        Button:
+            text: "Get All Information"
+            size_hint: (0.4, 0.1)
+            pos_hint: {'center_x':0.5, 'y':0.6}
+            color: 0, 0, 0, 1
+            background_normal: 'top.png'
+            background_down: 'down.png'
+            border: 30,30,30,30
+        
+        Button:
+            text: "Back"
+		    size_hint: (.1, .1)
+            pos_hint: {'x':.05, 'y':.05}
+            color: 0, 0, 0, 1
+            background_normal: 'top.png'
+            background_down: 'down.png'
+            border: 30,30,30,30
+            on_press:
+                root.manager.current = 'Second'
+                root.go_Second()

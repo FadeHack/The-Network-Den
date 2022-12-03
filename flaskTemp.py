@@ -21,7 +21,7 @@ cellEntry(1,4,"Destination IP")
 cellEntry(1,5,"Destination Port")
 cellEntry(1,6,"Protocol")
 app = Flask(__name__)
-run_with_ngrok(app)
+
 
 @app.route("/saveascsv",methods = ["POST"])
 async def saveascsv():

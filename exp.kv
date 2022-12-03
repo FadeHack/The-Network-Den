@@ -169,9 +169,12 @@ WindowManager:
 
 <SecondOneDataWindow>:
     name:"SecondOneData"
+    canvas.before:
+    
     FloatLayout:
+       
         MDProgressBar:
-            id: progress
+            id: progress 
             pos_hint: {"center_y": .6}
             type: "indeterminate"
         MDRaisedButton:
@@ -275,8 +278,8 @@ WindowManager:
         TextInput:
             id: show_whois_text
             disabled: True
-            size_hint:(0.5, 0.2)
-            pos_hint:{'center_x':0.5, 'y':0.3}
+            size_hint:(0.8, 0.4)
+            pos_hint:{'center_x':0.5, 'y':0.1}
             halign: "center"
             focus:True
 

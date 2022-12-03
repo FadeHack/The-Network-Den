@@ -8,6 +8,7 @@ WindowManager:
     SecondTwoWindow:
 
     SecondThreeWindow:
+    SecondThreeDataWindow:
 
 
 	
@@ -275,13 +276,7 @@ WindowManager:
                 root.whois_press()
         
 
-        TextInput:
-            id: show_whois_text
-            disabled: True
-            size_hint:(0.8, 0.4)
-            pos_hint:{'center_x':0.5, 'y':0.1}
-            halign: "center"
-            focus:True
+
 
         Button:
             text: "Get All Information"
@@ -306,3 +301,27 @@ WindowManager:
             on_press:
                 root.manager.current = 'Second'
                 root.go_Second()
+
+<SecondThreeDataWindow>:
+    name:"SecondThreeData"
+    size: root.width, root.height
+
+    TextInput:
+        id: show_whois_text
+        disabled: True
+        size_hint:(0.8, 0.4)
+        pos_hint:{'center_x':0.5, 'y':0.1}
+        halign: "center"
+        focus:True
+
+    Button:
+        text: "Back"
+		size_hint: (.1, .1)
+        pos_hint: {'x':.05, 'y':.05}
+        color: 0, 0, 0, 1
+        background_normal: 'top.png'
+        background_down: 'down.png'
+        border: 30,30,30,30
+        on_press:
+            root.manager.current = 'SecondThree'
+            root.go_Second_Three()

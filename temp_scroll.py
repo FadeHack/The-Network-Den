@@ -100,7 +100,7 @@ class SecondThreeWindow(Screen):
         self.temp = self.ids.input_whois.text 
         
     def whois_button(self):
-        w = whois.query(self.temp)
+        w = whois.whois(self.temp)
         self.ids.show_whois.text = w
 
 

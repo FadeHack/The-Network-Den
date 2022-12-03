@@ -92,7 +92,7 @@ class SecondTwoWindow(Screen):
 
 
 class SecondThreeWindow(Screen):
-    temp = ''
+    temp = 'Enter Domain in the Text Field'
     def go_Second(self):
         self.parent.get_screen('Second')
         

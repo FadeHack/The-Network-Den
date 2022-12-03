@@ -101,10 +101,10 @@ class SecondTwoWindow(Screen):
                                         +"\n" + "Longitude : " + str(loc.get('longitude')) +"\n" + "State : " + str(loc.get('state'))
                                         
 
-global tem
-tem = ''
+global wa
+wa = ''
 class SecondThreeWindow(Screen):
-    # temp = 'Enter Domain in the Text Field'    
+    tem = 'Enter Domain in the Text Field'    
     def whois_button(self):
         self.parent.get_screen('SecondThreeData')  
     def go_Second(self):
@@ -113,13 +113,13 @@ class SecondThreeWindow(Screen):
         
     def whois_press(self):
         self.tem = self.ids.input_whois.text 
-        
+        self.wa = whois.whois(self.tem)
 
 
 class SecondThreeDataWindow(Screen):
     def build(self):
-        w = whois.whois(tem)
-        self.ids.show_whois_text.text = str(w)
+        
+        self.ids.show_whois_text.text = str(wa)
     
     def go_Second_three(self):
         self.parent.get_screen('SecondThree')

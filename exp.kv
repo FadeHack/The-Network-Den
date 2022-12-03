@@ -169,17 +169,27 @@ WindowManager:
 
 <SecondOneDataWindow>:
     name:"SecondOneData"
-    Button:
-        text: "Back"
-		size_hint: (.1, .1)
-        pos_hint: {'x':.05, 'y':.05}
-        color: 0, 0, 0, 1
-        background_normal: 'top.png'
-        background_down: 'down.png'
-        border: 30,30,30,30
-        on_press:
-            root.manager.current = 'SecondOne'
-            root.go_SecondOne()
+    FloatLayout:
+        MDProgressBar:
+            id: progress
+            pos_hint: {"center_y": .6}
+            type: "indeterminate"
+        MDRaisedButton:
+            text: "STOP" if root.state == "start" else "START"
+            pos_hint: {"center_x": .5, "center_y": .45}
+            on_press: root.state = "stop" if root.state == "start" else "start"
+
+        Button:
+            text: "Back"
+	    	size_hint: (.1, .1)
+            pos_hint: {'x':.05, 'y':.05}
+            color: 0, 0, 0, 1
+            background_normal: 'top.png'
+            background_down: 'down.png'
+            border: 30,30,30,30
+            on_press:
+                root.manager.current = 'SecondOne'
+                root.go_SecondOne()
 
 
 <SecondTwoWindow>:
@@ -196,6 +206,7 @@ WindowManager:
             font_size: 15
             size_hint: (0.3, 0.05)
             pos_hint: {'center_x':0.1, 'y':0.8}
+
         TextInput:
             id: ip_to_loc
             multiline: False

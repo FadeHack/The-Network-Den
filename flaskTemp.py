@@ -7,7 +7,7 @@ nest_asyncio.apply()
 import pandas as pd
 import openpyxl
 from flask_ngrok import run_with_ngrok
-wb = openpyxl.Workbook() 
+wb = openpyxl.Workbook()  
 sheet = wb.active
 def cellEntry(row, column, attribute):
     new_cell = sheet.cell(row, column)
@@ -51,7 +51,7 @@ async def saveascsv():
             wb.save("log.xlsx")
             row1=row1+1
 
-            print ("%s IP %s:%s <-> %s:%s (%s)" % (localtime, src_addr, src_port, dst_addr, dst_port, protocol))
+            # print ("%s IP %s:%s <-> %s:%s (%s)" % (localtime, src_addr, src_port, dst_addr, dst_port, protocol))
             # time.sleep(3)
         except AttributeError as e:
             pass

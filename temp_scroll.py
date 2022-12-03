@@ -7,12 +7,17 @@ from threading import Thread
 import functools
 from kivy.uix.image import Image
 from kivy.uix.textinput import TextInput
+from kivy.uix.progressbar import ProgressBar
+from kivy.properties import StringProperty
 import requests
 from kivy.config import Config
+from kivymd.app import MDApp
 Config.set('graphics', 'resizable', True)
 import whois
 import socket
 import json
+
+
 
 
 global networkInterfaces
@@ -54,6 +59,12 @@ class SecondOneWindow(Screen):
 class SecondOneDataWindow(Screen):
     def go_SecondOne(self):
         self.parent.get_screen('SecondOne')
+    state = StringProperty("stop")
+    def on_state(self, instance, value):
+        {
+        "start": self.ids.progress.start,
+        "stop": self.ids.progress.stop,
+        }.get(value)()
 
 
 class SecondTwoWindow(Screen):
@@ -110,7 +121,7 @@ class WindowManager(ScreenManager):
     pass
 
 
-class MyTestApp(App):
+class MyTestApp(MDApp):
     NI = networkInterfaces
     def build(self):
         return Builder.load_file('exp.kv')

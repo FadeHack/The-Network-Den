@@ -104,16 +104,17 @@ class SecondTwoWindow(Screen):
 global tem
 tem = ''
 class SecondThreeWindow(Screen):
-    # temp = 'Enter Domain in the Text Field'
+    # temp = 'Enter Domain in the Text Field'    
+    def whois_button(self):
+        self.parent.get_screen('SecondThreeData')  
     def go_Second(self):
         self.parent.get_screen('Second')
-        
+      
         
     def whois_press(self):
         self.tem = self.ids.input_whois.text 
         
-    def whois_button(self):
-        self.parent.get_screen('SecondThreeData')
+
 
 class SecondThreeDataWindow(Screen):
     def build(self):

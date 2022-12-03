@@ -287,8 +287,8 @@ WindowManager:
             background_down: 'down.png'
             border: 30,30,30,30
             on_press:
+                root.manager.current = 'SecondThreeData'
                 root.whois_button()
-
         
         Button:
             text: "Back"
@@ -309,8 +309,8 @@ WindowManager:
     TextInput:
         id: show_whois_text
         disabled: True
-        size_hint:(0.8, 0.4)
-        pos_hint:{'center_x':0.5, 'y':0.1}
+        size_hint:(0.8, 0.6)
+        pos_hint:{'center_x':0.5, 'y':0.2}
         halign: "center"
         focus:True
 

@@ -305,11 +305,12 @@ WindowManager:
 <SecondThreeDataWindow>:
     name:"SecondThreeData"
     size: root.width, root.height
-
+    color: 0, 0, 0, 1
+    
     TextInput:
         id: show_whois_text
         disabled: True
-        size_hint:(0.8, 0.6)
+        size_hint:(0.8, 0.75)
         pos_hint:{'center_x':0.5, 'y':0.2}
         halign: "center"
         focus:True
@@ -324,4 +325,4 @@ WindowManager:
         border: 30,30,30,30
         on_press:
             root.manager.current = 'SecondThree'
-            root.go_Second_Three()
+            root.go_Second_three()

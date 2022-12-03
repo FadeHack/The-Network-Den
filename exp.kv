@@ -48,42 +48,67 @@ WindowManager:
         
 <SecondWindow>:
     name:"Second"
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 's2.jpg'
+
     BoxLayout:
-        orientation:"horizontal"
-        size: root.width, root.height
-        padding: 5
-        spacing: 5
+        pos_hint: {'center_y': 0.5}
+        size_hint: (1, 0.4)
+        spacing: dp(30)
+        padding: dp(10)
         Button:
-            id: scr2_1
-            text:"Feature 1"
-            color: 1, 1, 1, 1
-            font_size: 20
-            background_normal: '2.jpg'
-            border: 30,30,30,30
+            size_hint: (0.4, 1)
+            background_color: 0, 0, 0, 0
+            text: 'Feature 1'
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 0.2
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: (40, 40), (40, 40), (20, 20), (20, 20)
             on_release: 
 				app.root.current = "SecondOne"
 				root.manager.transition.direction = "right"
 
+
         Button:
             id: scr2_2
-            text:"Feature 2"
-            color: 1, 1, 1, 1
-            font_size: 20
-            background_normal: '1.jpg'
-            border: 30,30,30,30
+            size_hint: (0.4, 1)
+            background_color: 0, 0, 0, 0
+            text: 'Feature 1'
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 0.2
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: (40, 40), (40, 40), (20, 20), (20, 20)
             on_release: 
 				app.root.current = "SecondTwo"
 				root.manager.transition.direction = "right"
         Button:
             id: scr2_3
-            text:"Feature 3"
-            color: 1, 1, 1, 1
-            font_size: 20
-            background_normal: '3.jpg'
-            border: 30,30,30,30
+            size_hint: (0.4, 1)
+            background_color: 0, 0, 0, 0
+            text: 'Feature 1'
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 0.2
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: (40, 40), (40, 40), (20, 20), (20, 20)
             on_release: 
 				app.root.current = "SecondThree"
 				root.manager.transition.direction = "right"
+
+
+
         
 
 <SecondOneWindow>:

@@ -96,12 +96,13 @@ class SecondThreeWindow(Screen):
     def go_Second(self):
         self.parent.get_screen('Second')
         
+        
     def whois_press(self):
         self.temp = self.ids.input_whois.text 
         
     def whois_button(self):
         w = whois.whois(self.temp)
-        self.ids.show_whois.text = w
+        self.ids.show_whois_text.text = w
 
 
 

@@ -197,15 +197,20 @@ WindowManager:
             size_hint: (0.3, 0.05)
             pos_hint: {'center_x':0.1, 'y':0.8}
         TextInput:
+            id: ip_to_loc
             multiline: False
             font_size: 15
             size_hint:(0.5, 0.05)
             pos_hint:{'center_x':0.5, 'y':0.8}
+            on_text:
+                root.ip_to_loc_write()
+
         
         TextInput:
-            text: "Domain IP Address : 192.88.22.223"
-            size_hint:(0.5, 0.2)
-            pos_hint:{'center_x':0.5, 'y':0.3}
+            id: ip_to_loc_show
+            text: "Enter Domain in the text Field"
+            size_hint:(0.5, 0.3)
+            pos_hint:{'center_x':0.5, 'y':0.25}
             disabled: True
             halign: "center"
 
@@ -217,6 +222,8 @@ WindowManager:
             background_normal: 'top.png'
             background_down: 'down.png'
             border: 30,30,30,30
+            on_press:
+                root.ip_to_loc_press()
         
         Button:
             text: "Back"

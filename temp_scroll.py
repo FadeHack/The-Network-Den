@@ -11,6 +11,8 @@ import requests
 from kivy.config import Config
 Config.set('graphics', 'resizable', True)
 import whois
+import socket
+import json
 
 
 global networkInterfaces
@@ -55,9 +57,38 @@ class SecondOneDataWindow(Screen):
 
 
 class SecondTwoWindow(Screen):
+    temp = 'Enter Domain in the text Field'
     def go_Second(self):
         self.parent.get_screen('Second')
-        
+    
+    def ip_to_loc_write(self):
+        self.temp = self.ids.ip_to_loc.text
+    
+    def get_Host_name_IP(self, host_name): 
+        try: 
+            host_ip = socket.gethostbyname(host_name) 
+            return host_ip
+            # print("Hostname : ",host_name) 
+            # print("IP : ",host_ip) 
+        except: 
+            return "Unable to get Hostname and IP"
+    def get_location(self,ip):
+        ip_address = ip
+        request_url = 'https://geolocation-db.com/jsonp/' + ip_address
+        response = requests.get(request_url)
+        result = response.content.decode()
+        result = result.split("(")[1].strip(")")
+        result  = json.loads(result)
+        return result
+    
+    def ip_to_loc_press(self):
+        ip_addr = self.get_Host_name_IP(self.temp)
+        loc = self.get_location(ip_addr)
+        self.ids.ip_to_loc_show.text =  "IP Address : " + str(loc.get('IPv4')) + "\n" + "Country Code : " + str(loc.get('country_code')) \
+                                        +"\n" + "Country : " + str(loc.get('country_name')) +"\n" + "city : " + str(loc.get('city')) \
+                                        +"\n" + "Postal Code : " + str(loc.get('postal')) +"\n" + "Latitude : " + str(loc.get('latitude')) \
+                                        +"\n" + "Longitude : " + str(loc.get('longitude')) +"\n" + "State : " + str(loc.get('state'))
+                                        
 
 
 class SecondThreeWindow(Screen):

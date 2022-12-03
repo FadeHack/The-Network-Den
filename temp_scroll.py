@@ -6,9 +6,11 @@ import psutil
 from threading import Thread
 import functools
 from kivy.uix.image import Image
+from kivy.uix.textinput import TextInput
 import requests
 from kivy.config import Config
 Config.set('graphics', 'resizable', True)
+import whois
 
 
 global networkInterfaces
@@ -59,10 +61,16 @@ class SecondTwoWindow(Screen):
 
 
 class SecondThreeWindow(Screen):
+    temp = ''
     def go_Second(self):
         self.parent.get_screen('Second')
-
-
+        
+    def whois_press(self):
+        self.temp = self.ids.input_whois.text 
+        
+    def whois_button(self):
+        w = whois.query(self.temp)
+        self.ids.show_whois.text = w
 
 
 

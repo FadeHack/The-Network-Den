@@ -8,6 +8,7 @@ from kivy.uix.recycleboxlayout import RecycleBoxLayout
 from kivy.uix.behaviors import FocusBehavior
 from kivy.uix.recycleview.layout import LayoutSelectionBehavior
 
+
 Builder.load_string('''
 
 <SelectableLabel>:

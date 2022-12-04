@@ -1,13 +1,12 @@
 from threading import local
-from flask import Flask,request
+from flask import Flask,request,jsonify
 import pyshark
 import time
 import nest_asyncio
 nest_asyncio.apply()
 import pandas as pd
 import openpyxl
-from flask_ngrok import run_with_ngrok
-wb = openpyxl.Workbook()  
+wb = openpyxl.Workbook()
 sheet = wb.active
 def cellEntry(row, column, attribute):
     new_cell = sheet.cell(row, column)
@@ -34,7 +33,7 @@ async def saveascsv():
     capture = pyshark.LiveCapture(interface = networkInterface)
     
     print(capture)
-    for packet in capture.sniff_continuously():
+    for packet in capture.sniff_continuously(packet_count=100):
         try:
             localtime = time.asctime(time.localtime(time.time()))
             cellEntry(row1,1,localtime)
@@ -56,6 +55,12 @@ async def saveascsv():
         except AttributeError as e:
             pass
             print (" ")
+
+
+
+
+
+
     
         
 

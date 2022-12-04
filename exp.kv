@@ -310,9 +310,11 @@ WindowManager:
         size_hint:(0.8, 0.75)
         pos_hint:{'center_x':0.5, 'y':0.2}
 
-        Label:
+        LabelWithBorder:
             id: show_whois_text
             height: self.texture_size[1]
+            border_width: 10
+            border_color: [1,0,0,1]
             color: 0, 0, 0, 1
             text_size: self.width, None
             size_hint_y: None

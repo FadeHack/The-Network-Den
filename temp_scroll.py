@@ -21,8 +21,6 @@ import json
 wi = " "
 
 
-
-
 global networkInterfaces
 # global api_uri
 # api_uri = "http://127.0.0.1:5000/saveascsv"
@@ -105,13 +103,10 @@ class SecondTwoWindow(Screen):
                                         
 
 
-class SecondThreeWindow(Screen):
-    w = ''
-    tem = 'Enter Domain in the Text Field'    
+class SecondThreeWindow(Screen):   
     def whois_button(self):
         self.parent.get_screen('SecondThreeData')  
-        self.tem = self.ids.input_whois.text 
-        self.w = whois.whois(self.tem)
+        self.wi = self.ids.input_whois.text 
         
     def go_Second(self):
         self.parent.get_screen('Second')
@@ -119,8 +114,14 @@ class SecondThreeWindow(Screen):
 
 
 class SecondThreeDataWindow(SecondThreeWindow, Screen):
+    ws = ''
     def build(self):
         self.ids.show_whois_text.text = str(self.wa)
+    
+    def whoshow(self):
+        self.ws = str(whois.whois(wi))
+        print(self.ws)
+        self.ids.show_whois_text.text = self.ws
     
     def go_Second_three(self):
         self.parent.get_screen('SecondThree')

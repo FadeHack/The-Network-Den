@@ -307,6 +307,8 @@ WindowManager:
     color: 0, 0, 0, 1
     ScrollView:
         id: srlv
+        do_scroll_x: False
+        do_scroll_y: True
         size_hint:(0.8, 0.75)
         pos_hint:{'center_x':0.5, 'y':0.2}
         bar_width: 10
@@ -314,11 +316,9 @@ WindowManager:
         bar_inactive_color: 0, 0, 1, 1   # blue
         effect_cls: "ScrollEffect"
 
-        TextInput:
-            do_scroll_x: False
-            do_scroll_y: True
+        Label:
             id: show_whois_text
-            disabled: True
+            height: self.texture_size[1]
             halign: "center"
             multiline: True
         

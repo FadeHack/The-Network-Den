@@ -18,6 +18,9 @@ import socket
 import json
 
 
+wi = " "
+
+
 
 
 global networkInterfaces
@@ -101,26 +104,45 @@ class SecondTwoWindow(Screen):
                                         +"\n" + "Longitude : " + str(loc.get('longitude')) +"\n" + "State : " + str(loc.get('state'))
                                         
 
+
 class SecondThreeWindow(Screen):
-    wa = ''
-    tem = 'Enter Domain in the Text Field'    
+    tem = 'Enter Domain in the Text Field'
+    
     def whois_button(self):
-        self.parent.get_screen('SecondThreeData')  
-        self.tem = self.ids.input_whois.text 
-        self.wa = whois.whois(self.tem)
+        self.parent.get_screen('SecondThreeData')
+        global wi
+        wi = self.tem
         
+        
+
     def go_Second(self):
         self.parent.get_screen('Second')
+      
+       
+    def whois_press(self):
+        self.tem = self.ids.input_whois.text
+        print(self.tem)
         
 
 
+    
+        
+    
+    
 
-class SecondThreeDataWindow(SecondThreeWindow, Screen):
-    def build(self):
-        self.ids.show_whois_text.text = str(self.wa)
+
+class SecondThreeDataWindow(Screen):
+    ws = " "
+    def whoshow(self):
+        self.ws = str(whois.whois(wi))
+        print(self.ws)
+        self.ids.show_whois_text.text = self.ws
+
     
     def go_Second_three(self):
         self.parent.get_screen('SecondThree')
+        print("Hello",wi)
+        
     
 
 class WindowManager(ScreenManager):

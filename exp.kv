@@ -314,9 +314,11 @@ WindowManager:
         bar_inactive_color: 0, 0, 1, 1   # blue
         effect_cls: "ScrollEffect"
 
-        Label:
+        TextInput:
             id: show_whois_text
             height: self.texture_size[1]
+            text_size: self.width, None
+            disabled: True
             halign: "center"
             multiline: True
         

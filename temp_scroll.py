@@ -110,8 +110,6 @@ class SecondThreeWindow(Screen):
         global wi
         wi = self.tem
         
-        
-
     def go_Second(self):
         self.parent.get_screen('Second')
       

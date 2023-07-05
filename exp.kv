@@ -18,7 +18,7 @@ WindowManager:
         Rectangle:
             pos: self.pos
             size: self.size
-            source: 'firstPg.jpg'
+            source: './images/firstPg.jpg'
     FloatLayout:
         size: root.width, root.height
         Label:
@@ -40,8 +40,8 @@ WindowManager:
             size_hint: (.3, .04)
             pos_hint: {'center_x':0.5, 'center_y':0.2}
             color: 0, 0, 0, 1
-            background_normal: 'top.png'
-            background_down: 'down.png'
+            background_normal: './images/top.png'
+            background_down: './images/down.png'
             border: 30,30,30,30
 			on_release: 
 				app.root.current = "Second"
@@ -54,7 +54,7 @@ WindowManager:
         Rectangle:
             pos: self.pos
             size: self.size
-            source: 'matteblack.jpg'
+            source: './images/matteblack.jpg'
 
     BoxLayout:
         pos_hint: {'center_y': 0.5}
@@ -121,7 +121,7 @@ WindowManager:
         Rectangle:
             pos: self.pos
             size: self.size
-            source: 'fig1.jpg'
+            source: './images/fig1.jpg'
     FloatLayout:
         Label:
             id: my_label_id
@@ -141,8 +141,8 @@ WindowManager:
 			values: app.NI
         	pos_hint:{'center_x': .5, 'center_y': .7}
         	color: 0, 0, 0, 1
-            background_normal: 'down.png'
-            background_down: 'top.png'
+            background_normal: './images/down.png'
+            background_down: './images/top.png'
             border: 30,30,30,30
 			
         Button:
@@ -150,8 +150,8 @@ WindowManager:
             size_hint: (.1, .1)
             pos_hint: {'center_x': 0.9, 'y':.05}
             color: 0, 0, 0, 1
-            background_normal: 'down.png'
-            background_down: 'top.png'
+            background_normal: './images/down.png'
+            background_down: './images/top.png'
             border: 30,30,30,30
             on_press:
 				root.pressed()
@@ -161,8 +161,8 @@ WindowManager:
 		    size_hint: (.1, .1)
             pos_hint: {'x':.05, 'y':.05}
             color: 0, 0, 0, 1
-            background_normal: 'down.png'
-            background_down: 'top.png'
+            background_normal: './images/down.png'
+            background_down: './images/top.png'
             border: 30,30,30,30
             on_press:
                 root.manager.current = 'Second'
@@ -188,8 +188,8 @@ WindowManager:
 	    	size_hint: (.1, .1)
             pos_hint: {'x':.05, 'y':.05}
             color: 0, 0, 0, 1
-            background_normal: 'top.png'
-            background_down: 'down.png'
+            background_normal: './images/top.png'
+            background_down: './images/down.png'
             border: 30,30,30,30
             on_press:
                 root.manager.current = 'SecondOne'
@@ -203,7 +203,7 @@ WindowManager:
         Rectangle:
             pos: self.pos
             size: self.size
-            source: 'fig2.jpg'
+            source: './images/fig2.jpg'
     FloatLayout:
         Label:
             text:"Enter Site : "
@@ -234,8 +234,8 @@ WindowManager:
             size_hint: (0.4, 0.1)
             pos_hint: {'center_x':0.5, 'y':0.6}
             color: 0, 0, 0, 1
-            background_normal: 'top.png'
-            background_down: 'down.png'
+            background_normal: './images/top.png'
+            background_down: './images/down.png'
             border: 30,30,30,30
             on_press:
                 root.ip_to_loc_press()
@@ -245,8 +245,8 @@ WindowManager:
 		    size_hint: (.1, .1)
             pos_hint: {'x':.05, 'y':.05}
             color: 0, 0, 0, 1
-            background_normal: 'top.png'
-            background_down: 'down.png'
+            background_normal: './images/top.png'
+            background_down: './images/down.png'
             border: 30,30,30,30
             on_press:
                 root.manager.current = 'Second'
@@ -259,7 +259,7 @@ WindowManager:
         Rectangle:
             pos: self.pos
             size: self.size
-            source: 'fig3.jpg'
+            source: './images/fig3.jpg'
     FloatLayout:
         Label:
             text:"Enter Site : "
@@ -280,8 +280,8 @@ WindowManager:
             size_hint: (0.4, 0.1)
             pos_hint: {'center_x':0.5, 'y':0.6}
             color: 0, 0, 0, 1
-            background_normal: 'top.png'
-            background_down: 'down.png'
+            background_normal: './images/top.png'
+            background_down: './images/down.png'
             border: 30,30,30,30
             on_press:
                 root.manager.current = 'SecondThreeData'
@@ -292,8 +292,8 @@ WindowManager:
 		    size_hint: (.1, .1)
             pos_hint: {'x':.05, 'y':.05}
             color: 0, 0, 0, 1
-            background_normal: 'top.png'
-            background_down: 'down.png'
+            background_normal: './images/top.png'
+            background_down: './images/down.png'
             border: 30,30,30,30
             on_press:
                 root.manager.current = 'Second'
@@ -315,6 +315,8 @@ WindowManager:
             height: self.texture_size[1]
             color: 0, 0, 0, 1
             italic: True
+            outline_width: 10
+            outline_colour: (0, 0, 0, 1)
             text_size: self.width, None
             size_hint_y: None
             halign: "center"
@@ -327,8 +329,8 @@ WindowManager:
 		size_hint: (.1, .1)
         pos_hint: {'x':.05, 'y':.05}
         color: 0, 0, 0, 1
-        background_normal: 'top.png'
-        background_down: 'down.png'
+        background_normal: './images/top.png'
+        background_down: './images/down.png'
         border: 30,30,30,30
         on_press:
             root.manager.current = 'SecondThree'
@@ -339,8 +341,8 @@ WindowManager:
 		size_hint: (.1, .1)
         pos_hint: {'x':.85, 'y':.05}
         color: 0, 0, 0, 1
-        background_normal: 'top.png'
-        background_down: 'down.png'
+        background_normal: './images/top.png'
+        background_down: './images/down.png'
         border: 30,30,30,30
         on_press:
             root.whoshow()
